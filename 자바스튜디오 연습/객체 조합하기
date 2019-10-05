@@ -1,0 +1,69 @@
+package text;
+
+public class TeamTest {
+  public static void main(String[] args) {
+    // 선수 객체 생성
+    Player kim = new Player("Kim", new int[] { 9, 8, 10 });
+    Player lee = new Player("Lee", new int[] { 10, 9, 10 });
+    Player park = new Player("Park", new int[] { 8, 10, 9 });
+    Player Xiao = new Player("Xiao", new int[] { 10, 9, 10 });
+    Player Yu = new Player("Yu", new int[] { 8, 9, 10});
+    Player Xui = new Player("Xui", new int[] { 8, 9, 9 });
+
+    // 객체 배열 만들기
+    Player[] koreaPlayers = { kim, lee, park };
+    Player[] chinaPlayers = { Xiao, Yu, Xui };
+    
+    // 팀 객체 생성
+    Team korea = new Team("대한민국", koreaPlayers);
+    Team china = new Team("중국", chinaPlayers);
+    
+    // 팀 점수 출력
+    System.out.printf("KOREA -> %d points\n", korea.teamPoints());
+    System.out.printf("china -> %d points\n", china.teamPoints());
+  }
+}
+
+// 팀 클래스
+class Team {
+  // 필드
+  String nation;    // 나라
+  Player[] players; // 선수들
+  
+  // 생성자
+  public Team(String str, Player[] arr) {
+    nation = str;
+    players = arr;
+  }
+  
+  // 메소드
+  public int teamPoints() {
+    int sum = 0;
+    for (int i = 0; i < players.length; i++) {
+      sum += players[i].totalPoints();
+    }
+    return sum;
+  }
+}
+
+// 선수 클래스
+class Player {
+  // 필드
+  String name;  // 이름
+  int[] points; // 득점 현황
+
+  // 생성자
+  public Player(String str, int[] arr) {
+    name = str;
+    points = arr;
+  }
+
+  // 메소드
+  public int totalPoints() {
+    int sum = 0;
+    for (int i = 0; i < points.length; i++) {
+      sum += points[i];
+    }
+    return sum;
+  }
+}
