@@ -1,0 +1,46 @@
+package text;
+
+public class Safari {
+	  public static void main(String[] args) {
+	    // 호랑이, 사자, 말 객체 생성
+	    Tiger tiger = new Tiger();
+	    Lion lion = new Lion();
+	    Horse horse = new Horse();
+	    
+	    // 상위 타입 Animal의 객체 배열 생성
+	    Animal[] animals = { tiger, lion, horse };
+	    
+	    // 모든 동물의 울음 소리 듣기
+	    for (int i = 0; i < animals.length; i++) {
+	      Animal temp = animals[i];
+	      temp.cry();
+	    }
+	  }
+	}
+	/* 1. Animal을 추상 클래스로 선언하세요. */
+	abstract class Animal {
+	  protected String name;
+	  public void cry() 
+	  { System.out.println("동물이 웁니다."); }
+	}
+
+	/* 2. Animal을 상속받고, 호랑이 버전 cry() 메소드를 재정의하세요. */
+	class Tiger extends Animal {
+	  public void cry() {
+	    System.out.println("호랑이: 어흥~!");
+	  }
+	}
+
+	/* 3. Animal을 상속받고, 사자 버전 cry() 메소드를 재정의하세요. */
+	class Lion extends Animal {
+	  public void cry() {
+	    System.out.println("사자: 크앙!!");
+	  }
+	}
+
+	/* 4. Animal을 상속받고, 말 버전 cry() 메소드를 재정의하세요. */
+	class Horse extends Animal{
+	  public void cry() {
+	    System.out.println("말: 푸히힝~");
+	  }
+	}
