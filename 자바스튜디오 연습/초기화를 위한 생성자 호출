@@ -1,0 +1,32 @@
+public class BicycleTest {
+	  public static void main(String[] args) {
+	    /* 1. 객체 생성 및 초기화 */
+	    Bicycle2 b1 = new Bicycle2("부릉2", 21.74, 899000);
+	    
+	    /* 2. 객체 정보 출력 */
+	    System.out.println(b1.toString());
+	    
+	    /* 3. 문제를 위한 코드를 추가하세요. */
+	  }
+	}
+
+	class Bicycle2 
+	{
+	  /* 필드 */
+	  String name;
+	  double weight;
+	  int price;
+	  
+	  /* 생성자 - 파라미터를 통한 초기화 */
+	  public Bicycle2(String n, double w, int p) {
+	    name = n;
+	    weight = w;
+	    price = p;
+	  }
+	  
+	  /* 메소드 */
+	  public String toString() {
+	    // 객체 정보(필드)를 형식 문자로 반환
+	    return String.format("Bicycle { name: %s, weight: %.2fkg, price: %d원 }", name, weight, price);
+	  }
+	}
