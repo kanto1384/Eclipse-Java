@@ -1,0 +1,88 @@
+package java6;
+
+import java.util.Scanner;
+
+public class RockScissorsPaper 
+{
+	private int a,select;
+	
+	public int Rock() 
+	{
+		System.out.print("철수(바위)");
+		a = (int)(Math.random()*3+1);
+		Random(a);
+		show(a,select);
+		return 2; //바위는 보를 이길 수 없으나 가위를 이길수있고
+	}
+	public int Scissors() 
+	{
+		System.out.print("철수(보)");
+		a = (int)(Math.random()*3+1);
+		Random(a);
+		show(a,select);
+		return 3; //보는 가위를 이길수 없으나 바위르르 이길수고
+	}
+	public int Paper() 
+	{
+		System.out.print("철수(가위)");
+		a = (int)(Math.random()*3+1);
+		Random(a);
+		show(a,select);
+		return 1; //가위는 바위를 이길 수 없으나 보를 이길수  있고
+	}
+	public void exit() 
+	{
+	System.exit(0);	
+	}
+	public void run()
+	{
+		Scanner sc = new Scanner(System.in);
+		select = sc.nextInt();
+		switch (select)  
+		{
+		case 1: //가위
+			Paper(); 
+			break;
+		case 2: //바위
+			Rock();
+			break;
+		case 3: //보
+			Scissors();
+			break;
+		case 4: //끝내기
+			System.out.println("종료합니다.");
+			exit();
+			break;
+		default:
+			System.out.print("잘못입력했습니다.(1~4)");
+			run();
+		}
+	}
+	public void Random(int a) 
+	{
+		if(a == 1) 
+			System.out.print(" : 컴퓨터(가위)");
+		else if(a == 2)
+			System.out.print(" : 컴퓨터(바위)");
+		else 
+			System.out.print(" : 컴퓨터(보)");
+	}
+	public void show(int a,int b) //a컴퓨터 b는 철수
+	{
+		if(a==b)
+			System.out.println("\n비겼습니다.");
+		else if(a==1 && b==2 || a==2 && b==3 || a==3 && b==1)
+			System.out.println("\n철수 승");
+		else {
+			System.out.println("\n컴퓨터 승");
+		}
+		System.out.print("철수[가위(1),바위(2),보(3),끝내기(4)] : ");
+		run();
+	}
+	public static void main(String[] args) 
+	{
+		RockScissorsPaper RSP = new RockScissorsPaper();
+		System.out.print("철수[가위(1),바위(2),보(3),끝내기(4)] : ");
+		RSP.run();
+	}
+}
