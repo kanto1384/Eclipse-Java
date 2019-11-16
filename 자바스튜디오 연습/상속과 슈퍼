@@ -1,0 +1,60 @@
+package text;
+
+public class ABCMart {
+	  public static void main(String[] args) {
+	    // 샌달, 워커 객체 생성
+	    Sandals s = new Sandals(280, 85500, true);
+	    WorkerBoots w = new WorkerBoots(275, 135000, 0.98);
+	    
+	    // 상위 타입의 Shoes 배열 생성
+	    Shoes[] myShoesArr = { s, w };
+	    
+	    // 모든 신발 정보 출력
+	    for (int i = 0; i < myShoesArr.length; i++) {
+	      Shoes temp = myShoesArr[i];
+	      System.out.println(temp.toString());
+	    }
+	  }
+	}
+
+	/* 1. Shoes 클래스를 추상 클래스로 선언하세요. */
+	class Shoes {
+	  protected int size;
+	  protected int price;
+	  
+	  public Shoes(int size, int price) {
+	    this.size = size;
+	    this.price = price;
+	  }
+	  
+	  public String toString() {
+	    return String.format("신발 { size: %dmm, price: %d원 }", size, price);
+	  }
+	}
+
+	class Sandals extends Shoes {
+	  protected boolean waterproof;
+	  
+	  public Sandals(int size, int price, boolean waterproof) {
+		super(size, price);
+		this.waterproof = waterproof;
+	    
+	  }
+	  
+	  public String toString() {
+	    return String.format("샌달 { size: %dmm, price: %d원, waterproof: %b }", size, price, waterproof);
+	  }
+	}
+
+	class WorkerBoots extends Shoes {
+	  protected double weight;
+	  
+	  public WorkerBoots(int size, int price, double weight) {
+		super(size, price);
+		this.weight = weight;
+	  }
+	  
+	  public String toString() {
+	    return String.format("워커 { size: %dmm, price: %d원, weight: %.2fkg }", size, price, weight);
+	  }
+	}
