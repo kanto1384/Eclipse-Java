@@ -1,0 +1,37 @@
+package text;
+
+import java.util.Random;
+
+public class DiceTest {
+  public static void main(String[] args) {
+    // 주사위 객체 생성
+    Dice a = new Dice(4);  // 사면체
+    Dice b = new Dice(10); // 십면체
+    
+    // 주사위 굴리기
+    int resultA = a.roll(); // 사면체
+    int resultB = b.roll(); // 십면체
+    
+    // 결과 출력
+    System.out.printf("A 주사위 -> %d\n", resultA);
+    System.out.printf("B 주사위 -> %d\n", resultB);
+  }
+}
+
+// 주사위 클래스
+class Dice {
+  // 필드
+  private int max;     // 최대 값
+  private Random rand; // 랜덤 클래스를 위한 레퍼런스 변수
+  
+  // 생성자
+  public Dice(int max) {
+    this.max = max;
+    this.rand = new Random();
+  }
+  
+  // 메소드
+  public int roll() {
+    return rand.nextInt(max) + 1;
+  }
+}
