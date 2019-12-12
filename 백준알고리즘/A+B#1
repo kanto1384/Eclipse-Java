@@ -1,0 +1,20 @@
+//버퍼 안쓰고 스캐너 문과 문자열 아스키코드만으로 풀어보기
+import java.util.*;
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int legnth=0;
+		legnth = sc.nextInt();
+		String[] n = new String[legnth];
+		int[] k = new int[legnth];
+		for(int i=0;i<legnth;i++)
+		{
+			n[i] = sc.next();
+		}
+		for(int i=0;i<legnth;i++)
+		{
+            //아스키코드 0~9 = 48^2 ~ 57^2
+			System.out.println((n[i].charAt(0)+n[i].charAt(2))-96);
+		}
+	}
+}
