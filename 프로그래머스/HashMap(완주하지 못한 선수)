@@ -1,0 +1,40 @@
+import java.util.*;
+
+class Solution {
+    public String solution(String[] participant, String[] completion) 
+    {
+        String answer = "NULL";
+        int val =0;
+        HashMap<String,Integer> hm = new HashMap<String,Integer>();
+     
+        for(String part : participant) //선수명단을 part에 넣음
+        {
+        	if(hm.get(part) == null) //Map 모든값은 null 저장되있음
+        	{
+        		hm.put(part, 1); //선수 인원을 1명으로 가정을 하고 선수이름을 넣음
+        	}
+        	else //만약 선수이름이 중복이 될경우 인원수를 2명으로 맞춤
+        	{
+        		val = hm.get(part)+1;
+        		hm.put(part, val);
+        	}
+        }
+        for(String comp : completion) { //도착한 선수명단을 comp 에 넣음
+        	val =  hm.get(comp) - 1; //도착을했으니 인원스를 뺀 나머지를 다시 넣음
+        	hm.put(comp,val);
+        }
+        for(String key : hm.keySet()) { //도착은 했으나 아직도 달리고있는 인원이 1명일경우 비교연산자를 통해 그값을 반환함
+        	if(hm.get(key) == 1) {
+        		answer = key;
+        	}
+        }
+        return answer;
+    }
+    public static void main(String[] agrh)
+    {
+    	Solution so = new Solution();
+    	String[] participant = {"mislav", "stanko", "mislav", "ana"};
+    	String[] completion = {"stanko", "ana", "mislav"};
+    	System.out.println(so.solution(participant, completion));
+    }
+}
