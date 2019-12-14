@@ -1,0 +1,63 @@
+import java.util.*;
+public class SolutionEx13 {
+    public int[] solution(int[] answers) {
+        int[] st1 ={1,2,3,4,5};
+        int[] st2 ={2,1,2,3,2,4,2,5};
+        int[] st3 ={3,3,1,1,2,2,4,4,5,5};
+        
+        int[] pp = new int [3];
+        
+        for(int i=0;i<answers.length;i++)
+        {
+        	if(answers[i]==st1[i%5])
+        	{
+        		pp[0]++; 
+        	}if(answers[i]==st2[i%8])
+        	{
+        		pp[1]++; 
+        	}if(answers[i]==st3[i%10])
+        	{
+        		pp[2]++; 
+        	}
+        }
+        /* for(int i=0;i<pp.length;i++)
+        	System.out.println(pp[i]); */
+        
+        int win = pp[0];
+        for(int i=0;i<pp.length;i++) {
+        	if(win<pp[i])
+        		win = pp[i];
+        }
+        List<Integer> wins = new ArrayList<>();
+        
+        for(int i=0;i<pp.length;i++)
+        {
+        	if(win==pp[i]) {
+        	wins.add(i);
+        	}
+        }
+        int[] answer = new int[wins.size()];
+        
+        for(int i=0;i<wins.size();i++)
+        {
+        	answer[i]=wins.get(i)+1; 
+        }
+        return answer;
+    }
+	public static void main(String[] args) {
+		SolutionEx13 So = new SolutionEx13();
+		int[] answer = {1,2,3,4,5};
+		int[] answer2 = {1,3,2,4,2};
+		int[] answert = new int [1];
+		answert = So.solution(answer);
+		if(answert[0] == 1)
+		{
+			System.out.println("성공입니다.");
+		}
+		else {
+			System.out.println("실패");
+		}
+		
+	}
+
+}
