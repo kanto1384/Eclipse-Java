@@ -1,4 +1,12 @@
 import java.util.*;
+/*
+5
+********* 
+ ******* 
+  ***** 
+   *** 
+    * 
+    */
 public class Star2 {
 
 	public static void main(String[] args) {
