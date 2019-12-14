@@ -1,0 +1,28 @@
+package 백준알고리즘;
+
+import java.util.*;
+public class Star {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int Star = sc.nextInt();
+		int n=Star;
+		int k=0;
+		for(int i=0;i<Star;i++)
+		{
+			for(int m=1;m<=k;m++)
+			{
+				System.out.print(" ");
+			}
+			for(int j=0;j<n;j++)
+			{
+				System.out.print("*");
+			}
+			n--;
+			k++;
+			System.out.println(" ");
+		}
+	}
+
+}
