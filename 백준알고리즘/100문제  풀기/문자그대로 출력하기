@@ -1,0 +1,20 @@
+package 백준알고리즘2; //입력받은 아무 문자열이 공백이면 멈추거나 100개 이상이면 멈추는 
+
+import java.util.*;
+public class ScannerEx {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+        while(sc.hasNextLine()){
+            String name = sc.nextLine();
+            
+            if(name.isEmpty()||name.length()>100){
+                break;
+            }else{
+                System.out.println(name);
+	}
+
+}
+	}
+}
