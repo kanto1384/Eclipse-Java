@@ -21,7 +21,7 @@ public class FindAlphabet {
 		char bug=' ';
 		for(int i=0;i<N.length();i++)
 		{
-			if(bug == Apl[i])
+			if(bug == Apl[i] || hm.get(Apl[i]) != -1)
 			{
 				continue;
 			}
@@ -40,4 +40,3 @@ public class FindAlphabet {
 	}
 
 }
-//답은 맞는데..
