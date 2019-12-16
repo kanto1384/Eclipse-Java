@@ -1,0 +1,48 @@
+package 백준알고리즘2;
+
+import java.util.*;
+public class Dial {
+
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
+		int Charceter = 65;
+		int Number =3;
+		for(int i=1;i<18;i++)
+		{
+			hm.put((char)Charceter,Number);
+			if(i%3 == 0)
+			{
+				Number++;
+			}
+			Charceter++;
+		}
+		if(hm.get('Z') == null)
+		{
+			hm.put('R', 8);
+			hm.put('S', 8);
+			hm.put('T', 9);
+			hm.put('U', 9);
+			hm.put('V', 9);
+			hm.put('W', 10);
+			hm.put('X', 10);
+			hm.put('Y', 10);
+			hm.put('Z', 10);
+			hm.put('Z', 10);
+		}
+		String Dial= sc.next();
+		char[] Diale = new char[Dial.length()];
+		for(int i=0;i<Dial.length();i++)
+		{
+			Diale[i] = Dial.charAt(i) ;
+		}
+		int Num =0;
+		for(int i=0;i<Dial.length();i++)
+		{
+			hm.get(Diale[i]);
+			Num += hm.get(Diale[i]);
+		}
+		System.out.println(Num);
+	}
+}
