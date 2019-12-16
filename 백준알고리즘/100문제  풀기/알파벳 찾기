@@ -1,0 +1,43 @@
+package 백준알고리즘2;
+
+import java.util.*;
+public class FindAlphabet {
+
+	public static void main(String[] args) {
+		HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
+		Scanner sc =new Scanner(System.in);
+		int Charceter = 97;
+		for(int i=1;i<27;i++)
+		{
+			hm.put((char)Charceter,-1);
+			Charceter++;
+		}
+		String N = sc.next();
+		char[] Apl = new char[N.length()];
+		for(int i=0;i<N.length();i++)
+		{
+			Apl[i]= N.charAt(i);
+		}
+		char bug=' ';
+		for(int i=0;i<N.length();i++)
+		{
+			if(bug == Apl[i])
+			{
+				continue;
+			}
+			else 
+			{
+				hm.put(Apl[i], i);
+				bug = Apl[i];
+			}
+		}
+		Charceter = 97;
+		for(int i=1;i<27;i++)
+		{
+			System.out.print(hm.get((char)Charceter)+" ");
+			Charceter++;
+		}
+	}
+
+}
+//답은 맞는데..
