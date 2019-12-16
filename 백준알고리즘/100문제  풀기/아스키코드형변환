@@ -1,0 +1,12 @@
+package 백준알고리즘2;
+
+import java.util.*;
+public class Charceter {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		char answer = sc.next().charAt(0);
+		System.out.println((int)answer);
+	}
+
+}
