@@ -1,0 +1,19 @@
+package 백준알고리즘2;
+
+
+import java.util.*;
+public class StringEx {
+
+	public static void main(String[] args) {
+		  Scanner sc = new Scanner(System.in);
+	        String answer = sc.nextLine().trim();
+	        if(answer.isEmpty())
+	        {
+	        	System.out.println("0");
+	        } else {
+				System.out.println(answer.split(" ").length);
+			}
+	        }
+	}
+
+
