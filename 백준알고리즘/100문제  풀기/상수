@@ -1,0 +1,44 @@
+
+import java.io.*;
+import java.util.*;
+public class Final {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder(br.readLine()).reverse();
+		int A = Integer.parseInt(sb.substring(0, 3));
+		int B = Integer.parseInt(sb.substring(4, 7));
+		System.out.println(A > B ? A : B);
+	}
+}
+/*
+import java.util.*;
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		StringBuffer A = new StringBuffer(sc.next());
+		StringBuffer B = new StringBuffer(sc.next());
+		int answer =0;
+		int answer1=0;
+		A.reverse();
+		B.reverse();
+		for(int i=0;i<A.length();i++)
+		{
+			answer += (int)(A.charAt(i)-48);
+		}
+		for(int i=0;i<B.length();i++) 
+		{
+			answer1 += (int)(B.charAt(i)-48);
+		}
+		if(answer<answer1)
+		{
+			System.out.print(A);
+		}
+		else if(answer>answer1) 
+		{
+			System.out.print(B);
+		}
+}
+}
+*/
