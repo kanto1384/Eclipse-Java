@@ -1,0 +1,25 @@
+package 백준알고리즘2;
+
+import java.io.*;
+public class StringEx2 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		String Alpha[] = in.readLine().split(" ");
+		String A = Alpha[0];
+		String B = Alpha[1];
+		int max = 0;
+		for(int i=0; i<B.length()-A.length()+1; i++){
+		   String temp_B = B.substring(i, i+A.length());
+		   int answer = 0;
+		   for(int j=0; j<temp_B.length(); j++){
+		       if(A.charAt(j) == temp_B.charAt(j))
+		           ++answer;
+		  }
+		   if(answer > max)
+			   max = answer;
+		}
+		System.out.println(A.length() - max);
+	}
+
+}
