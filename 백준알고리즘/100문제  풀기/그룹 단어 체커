@@ -1,0 +1,30 @@
+package 백준알고리즘2;
+
+import java.util.*;
+public class  {
+
+	public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int i = 0;
+        int n = sc.nextInt();
+        int answer = n;
+        
+        for(int T = 0; T < n; T++) {
+            String word = sc.next();
+            boolean[] check = new boolean[26];
+            
+            for(i = 1; i < word.length(); i++) {
+                if(word.charAt(i-1) != word.charAt(i)) {
+                    if(check[word.charAt(i)-97] == true) {  
+                        answer--;            
+                        break;              
+                    }
+                    check[word.charAt(i-1) - 97] = true;
+                }
+            }
+        }
+        System.out.println(answer);
+	}
+
+}
