@@ -1,0 +1,30 @@
+
+import javax.swing.*;
+import java.awt.*;
+public class FlowLayoutExx extends JFrame {
+	
+	public FlowLayoutExx()
+	{
+		setTitle("FloswLayout Sample");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout(FlowLayout.LEFT,30,40));
+		c.setBackground(Color.orange);
+		c.add(new JButton("1"));
+		c.add(new JButton("2"));
+		c.add(new JButton("3"));
+		c.add(new JButton("4"));
+		c.add(new JButton("5"));
+		
+		setSize(400,500);
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		FlowLayoutExx fl = new FlowLayoutExx();
+	}
+
+}
