@@ -1,0 +1,27 @@
+
+import javax.swing.*;
+import java.awt.*;
+public class BorderLayoutExx extends JFrame {
+	public BorderLayoutExx() 
+	{
+		setSize(500,500);
+		setTitle("BorderLayoutEx");
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		Container c = getContentPane();
+		c.setLayout(new BorderLayout(30,20));
+		
+		c.add(new JButton("안농"), BorderLayout.CENTER);
+		c.add(new JButton("안녕"),BorderLayout.NORTH);
+		c.add(new JButton("난티미"),BorderLayout.SOUTH);
+		c.add(new JButton("니미나"),BorderLayout.EAST);
+		c.add(new JButton("나무나"),BorderLayout.WEST);
+		
+	}
+	
+	public static void main(String[] args) {
+		BorderLayoutExx bo = new BorderLayoutExx();
+	}
+
+}
