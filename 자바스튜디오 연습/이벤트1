@@ -1,0 +1,39 @@
+package tenEvent;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+
+public class EventEx extends JFrame {
+	public EventEx() 
+	{
+		setTitle("Action 이벤트 리스너");
+		setSize(350, 150);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+		JButton bt = new JButton("Action");
+		bt.addActionListener(new MyAction());
+		c.add(bt);
+	}
+	
+	public static void main(String[] args) {
+		new EventEx();
+	}
+
+}
+
+class MyAction implements ActionListener
+{
+	public void actionPerformed (ActionEvent e) {
+		JButton b = (JButton)e.getSource();
+		if(b.getText().equals("Action"))
+			b.setText("액션");
+		else
+			b.setText("Ation");
+	}
+	
+}
