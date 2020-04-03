@@ -1,0 +1,29 @@
+
+import javax.swing.*;
+import java.awt.*;
+
+public class GridLayoutExx extends JFrame{
+	public GridLayoutExx()
+	{
+		setSize(500,200);
+		setVisible(true);
+		setTitle("GridLayoutExx");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		GridLayout gr = new GridLayout(1,10);
+		gr.setVgap(5);
+		
+		Container c = getContentPane();
+		c.setLayout(gr);
+		for(int i =0;i<10;i++)
+		{
+			c.add(new JButton(Integer.toString(i)));
+		}
+	}
+	
+	
+	public static void main(String[] args) {
+		GridLayoutExx gr = new GridLayoutExx();
+		
+	}
+
+}
