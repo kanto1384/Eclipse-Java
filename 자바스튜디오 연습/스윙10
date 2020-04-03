@@ -1,0 +1,68 @@
+import javax.swing.*;
+import java.awt.*;
+
+class SouthPanel extends JFrame
+{
+	public SouthPanel() 
+	{
+		setBackground(Color.yellow);
+		JButton n1 = new JButton("Word Input");
+		JTextField n2 = new JTextField(15);
+		
+		add(n1);
+		add(n2);
+	}
+}
+public class JFrameEx extends JFrame{
+	public JFrameEx() 
+	{
+		setSize(500,550);
+		setTitle("여러 개의 패널을 가진 프레임");
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		Container c = getContentPane();
+		JPanel p1 = new JPanel();
+		JPanel p3 = new JPanel();
+		
+		SouthPanel Sh = new SouthPanel();
+		c.add(Sh,BorderLayout.SOUTH);
+		p1.setBackground(Color.gray);
+		
+		c.add(p1,BorderLayout.NORTH);
+		c.add(p3);
+
+		
+		JButton b1 = new JButton("열기");
+		JButton b2 = new JButton("닫기");
+		JButton b3 = new JButton("나가기");
+		
+		p1.add(b1);
+		p1.add(b2);
+		p1.add(b3);
+		
+
+		
+		p3.setLayout(null);
+		p3.setBackground(Color.WHITE);
+		
+		for(int i=0;i<20;i++)
+		{
+		JLabel label = new JLabel("*");
+		int x = (int)(Math.random()*250);
+		int y = (int)(Math.random()*250);
+		label.setForeground(Color.red);
+		label.setLocation(x,y);
+		label.setSize(20, 20);
+		label.setOpaque(true);
+		p3.add(label);
+		label.setBackground(Color.WHITE);
+		}
+	}
+
+	
+	public static void main(String[] args) {
+		new JFrameEx();
+	}
+
+}
