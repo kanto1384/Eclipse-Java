@@ -1,0 +1,38 @@
+package tenEvent;
+
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+public class EventEx10 extends JFrame {
+	public EventEx10() {
+		setTitle("랜덤 클릭");
+		setSize(300, 200);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		Container c = getContentPane();
+		c.addMouseListener(new MouseListener());
+		
+	}
+	class MouseListener extends MouseAdapter{
+		public void mouseClicked(MouseEvent e)
+		{;
+			if(e.getClickCount() % 2 == 0)
+			{
+				int r = (int)(Math.random()*256);
+				int g = (int)(Math.random()*256);
+				int b = (int)(Math.random()*256);
+				
+				Component c = (Component)e.getSource();
+				c.setBackground(new Color(r,g,b));
+				System.out.println(e.getClickCount());
+			}
+		//	System.out.println(e.getClickCount());
+		}
+	}
+	
+	public static void main(String[] args) {
+	new EventEx10();
+	}
+
+}
