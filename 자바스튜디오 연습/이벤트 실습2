@@ -1,0 +1,62 @@
+package tenEvent;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class EventExx1 extends JFrame {
+	public EventExx1() {
+		setTitle("드래깅동안");
+		setSize(300, 200);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		
+		Container c = getContentPane();
+		c.setBackground(Color.green);
+		c.addMouseMotionListener(new MouseMotionListener() {
+			
+			@Override
+			public void mouseMoved(MouseEvent e) { }
+			
+			@Override
+			public void mouseDragged(MouseEvent e) {
+			//	System.out.println("드래그 감지");
+				c.setBackground(Color.yellow);
+			}
+		});
+		c.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				c.setBackground(Color.green);
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+	}
+
+	public static void main(String[] args) {
+	new EventExx1();
+	}
+
+}
