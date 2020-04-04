@@ -1,0 +1,64 @@
+package tenEvent;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class EventExx extends JFrame{
+	private JLabel la = new JLabel("사랑해");
+	public EventExx() {
+		setTitle("마우스 올리기 내리기");
+		setSize(300, 200);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+		c.add(la);
+		la.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				System.out.println("마우스 나갔음");
+				if(la.getText().equals("Love Java"))
+				la.setText("사랑해");
+				else {
+					la.setText("Love Java");
+				}
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				System.out.println("마우스 감지함");
+				if(la.getText().equals("사랑해"))
+				la.setText("Love Java");
+				else {
+					la.setText("사랑해");
+				}
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+	}
+	public static void main(String[] args) {
+	new EventExx();
+	}
+
+}
