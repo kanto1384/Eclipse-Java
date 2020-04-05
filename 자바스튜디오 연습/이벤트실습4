@@ -4,9 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 public class EventExx3 extends JFrame{
-	private StringBuffer st = new StringBuffer("Love Java");
-	private JLabel la = new JLabel(st.toString());
-	private char at = ' ';
+	JLabel la = new JLabel("Love Java");
 	public EventExx3() {
 		setTitle("왼쪽누르면 오른쪽");
 		setSize(300,200);
@@ -15,38 +13,34 @@ public class EventExx3 extends JFrame{
 		
 		Container c = getContentPane();
 		c.setLayout(new FlowLayout());
-		c.add(la);
 		c.setFocusable(true);
 		c.requestFocus();
-		c.addKeyListener(new KeyListener() {
-			
-			@Override
-			public void keyTyped(KeyEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void keyReleased(KeyEvent e) {
-				
-				
-			}
-			
-			@Override
-			public void keyPressed(KeyEvent e) {
-				if(e.getKeyCode() == KeyEvent.VK_LEFT)
-				{
-					at = st.charAt(0);
-					st.delete(0,1);
-					st.append(at);
-					la.setText(st.toString());
-				}
-				
-			}
-		});
+
+		c.add(la);
+		c.addKeyListener(new MykeyAction());
 	}
 	public static void main(String[] args) {
 		new EventExx3();
 	}
 
+
+	class MykeyAction extends KeyAdapter
+{
+		private StringBuffer st = new StringBuffer("Love Java");
+		private char at = ' ';
+		
+		public void keyPressed(KeyEvent e) 
+	{
+		if(e.getKeyCode() == KeyEvent.VK_LEFT)
+		{
+			at = st.charAt(0);
+			st.delete(0,1);
+			st.append(at);
+			la.setText(st.toString());
+		}
+	}
 }
+}
+
+
+
