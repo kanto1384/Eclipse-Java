@@ -1,0 +1,43 @@
+package tenEvent;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+public class EventExx2 extends JFrame{
+	private StringBuffer st = new StringBuffer("Love Java");
+	private JLabel la = new JLabel(st.toString());
+	public EventExx2() {
+		setTitle("왼쪽키");
+		setSize(300, 200);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container c = getContentPane();
+		c.setFocusable(true);
+		c.requestFocus();
+		c.setLayout(new FlowLayout());
+		c.add(la);
+		c.addKeyListener(new KeyListener() 
+		{
+			@Override
+			public void keyTyped(KeyEvent e) {}
+			@Override
+			public void keyReleased(KeyEvent e) {}
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_LEFT)
+				{//	System.out.println("감지함");
+					st.reverse();
+					la.setText(st.toString());
+				}
+			}
+		});
+
+	}
+	
+	
+	
+	public static void main(String[] args) {
+	new EventExx2();
+	}
+
+}
