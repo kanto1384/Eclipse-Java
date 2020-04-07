@@ -1,0 +1,45 @@
+package tenEvent;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class EventExx4 extends JFrame {
+	private JLabel la = new JLabel("Love Java");
+	
+	public EventExx4()
+	{
+		setTitle("+,-키로 크기 조절");
+		setSize(300, 200);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+		c.add(la);
+		la.setFont(new Font("Arial", Font.PLAIN,10));
+		c.setFocusable(true);
+		c.requestFocus();
+		c.addKeyListener(new Mykey());
+	}
+	class Mykey extends KeyAdapter
+	{
+		public void keyPressed(KeyEvent e)
+		{
+			Font f = la.getFont();;
+			int size = f.getSize();
+			if(e.getKeyCode() == KeyEvent.VK_EQUALS)
+			{ 
+				System.out.println(size +"+");
+				la.setFont(new Font("Arial",Font.PLAIN,size+5));
+			}
+			else if(e.getKeyCode() == KeyEvent.VK_MINUS && size > 10)
+			{
+				System.out.println(size + "-");
+				la.setFont(new Font("Arial",Font.PLAIN,size-5));
+			}
+		}
+	}
+	public static void main(String[] args) {
+		new EventExx4();
+	}
+
+}
