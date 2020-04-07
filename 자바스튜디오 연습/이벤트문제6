@@ -1,0 +1,36 @@
+package tenEvent;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class EventExx5 extends JFrame{
+	private JLabel la = new JLabel("C");
+	
+	public EventExx5() {
+		setTitle("클릭 연습 용");
+		setSize(500, 400);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		Container c = getContentPane();
+		c.setLayout(null);
+		la.setLocation(100, 100);
+		la.setSize(30, 30);
+		c.add(la);
+		la.addMouseListener(new Mymouse());
+	}
+	class Mymouse extends MouseAdapter
+	{
+		private int x,y;
+		public void mousePressed(MouseEvent e) {
+			x = (int)(Math.random()*450);
+			y = (int)(Math.random()*300);
+			la.setLocation(x, y);
+		}
+	}
+	public static void main(String[] args) {
+		new EventExx5();
+	}
+
+}
